@@ -12,14 +12,30 @@ public class CPU {
 	private Memory memoria;
 	private OperandStack pila;
 	private boolean ejecucion;
+	private int contador;
+	private ProgramMV programa;
 
 	public CPU(Memory _memoria, OperandStack _pila) {
 
 		memoria = _memoria;
 		pila = _pila;
 		ejecucion = true;
+		contador=0;
 	}
 
+	public void loadProgram(ProgramMV pr)
+	{
+		programa=pr;
+		
+	}
+	
+	
+	public boolean step()
+	{
+		
+		return false;
+	}
+	
 	/**
 	 * Esta operacion de CPU ejecutará la instruccion que se le introduce como parámetro.
 	 * <p> Ademas se encarga del control de errores. </p>
@@ -29,7 +45,7 @@ public class CPU {
 	 *         
 	 *         <p> false si ha habido un error / datos incorrectos </p>
 	 */
-	
+	/*
 	public boolean execute(Instruction instr) {
 
 		boolean ejecucionCorrecta = true;
@@ -133,7 +149,7 @@ public class CPU {
 
 		return ejecucionCorrecta;
 	}
-
+*/
 	public boolean isEjecucion() {
 		return ejecucion;
 	}

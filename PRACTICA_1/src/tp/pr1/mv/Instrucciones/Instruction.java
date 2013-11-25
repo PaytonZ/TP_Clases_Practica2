@@ -1,10 +1,11 @@
 package tp.pr1.mv.Instrucciones;
 
-public class Instruction {
+import tp.pr1.mv.CPU.CPU;
 
-	private int param;
-	private TipoInstrucciones tipodeinstruccion;
+public abstract class Instruction {
 
+	protected TipoInstrucciones tipodeinstruccion;
+	protected int param;
 	/**
 	 * Implementa las instrucciones que puede manejar la maquina.
 	 * 
@@ -16,20 +17,14 @@ public class Instruction {
 	public Instruction(TipoInstrucciones tipo) {
 		tipodeinstruccion = tipo;
 	}
-
-	public Instruction(int _param, TipoInstrucciones tipo) {
-		param = _param;
+	public Instruction(TipoInstrucciones tipo,int _param) {
 		tipodeinstruccion = tipo;
-
+		param=_param;
 	}
-
-	public int getParam() {
-		return param;
-	}
-
-	public void setParam(int param) {
-		this.param = param;
-	}
+	abstract public boolean execute(CPU cpu);
+	
+	abstract public String toString();
+	
 
 	public TipoInstrucciones getTipodeinstruccion() {
 		return tipodeinstruccion;

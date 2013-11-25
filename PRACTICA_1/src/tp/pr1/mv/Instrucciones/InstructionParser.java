@@ -1,5 +1,7 @@
 package tp.pr1.mv.Instrucciones;
 
+
+
 /**
  * 
  * @author Antonio Blasco
@@ -27,31 +29,36 @@ public class InstructionParser {
 		String resultado[] = s.split(" ");
 
 		Instruction instr = null;
+		
+	
+			
 
-		switch (resultado[0].toUpperCase()) {
+	switch (resultado[0].toUpperCase()) {
 		case "PUSH":
 
 			if (resultado.length == 2) {
-				instr = new Instruction(Integer.valueOf(resultado[1]),TipoInstrucciones.PUSH);
+				
+				instr= new InstructionData(TipoInstrucciones.PUSH,Integer.valueOf(resultado[1]));
+								
 			}
 			break;
 		case "POP":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.POP);
+				instr = new InstructionRest(TipoInstrucciones.POP);
 			break;
 		case "DUP":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.DUP);
+				instr = new InstructionRest(TipoInstrucciones.DUP);
 			break;
 		case "FLIP":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.FLIP);
+				instr = new InstructionRest(TipoInstrucciones.FLIP);
 			break;
 		case "STORE":
 			if (resultado.length == 2) {
 				int param = Integer.valueOf(resultado[1]);
 				if (param >= 0) {
-					instr = new Instruction(param, TipoInstrucciones.STORE);
+					instr = new InstructionData(TipoInstrucciones.STORE,param);
 				}
 			}
 			break;
@@ -59,39 +66,39 @@ public class InstructionParser {
 			if (resultado.length == 2) {
 				int param = Integer.valueOf(resultado[1]);
 				if (param >= 0) {
-					instr = new Instruction(param, TipoInstrucciones.LOAD);
+					instr = new InstructionData(TipoInstrucciones.LOAD,param);
 				}
 			}
 			break;
 			
 		case "ADD":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.ADD);
+				instr = new InstructionaArithmetic(TipoInstrucciones.ADD);
 			break;
 			
 		case "SUB":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.SUB);
+				instr = new InstructionaArithmetic(TipoInstrucciones.SUB);
 			break;
 			
 		case "MUL":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.MUL);
+				instr = new InstructionaArithmetic(TipoInstrucciones.MUL);
 			break;
 
 		case "DIV":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.DIV);
+				instr = new InstructionaArithmetic(TipoInstrucciones.DIV);
 			break;
 			
 		case "OUT":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.OUT);
+				instr = new InstructionRest(TipoInstrucciones.OUT);
 			break;
 			
 		case "HALT":
 			if (resultado.length == 1)
-				instr = new Instruction(TipoInstrucciones.HALT);
+				instr = new InstructionRest(TipoInstrucciones.HALT);
 			break;
 		}
 
